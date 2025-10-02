@@ -1,193 +1,230 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>京选返利 - 最高返现，省钱购物</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f4f4f4; 
-            color: #333;
-        }
-        header {
-            background-color: #e91e63; 
-            color: white; 
-            padding: 20px 0; 
-            text-align: center;
-        }
-        .logo {
-            max-width: 150px; 
-            height: auto; 
-            margin: 10px auto; 
-            display: block;
-        }
-        nav {
-            background-color: #333; 
-            padding: 10px; 
-            text-align: center;
-        }
-        nav a {
-            color: white; 
-            margin: 0 15px; 
-            text-decoration: none; 
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .hero {
-            background-color: #ffeb3b; 
-            padding: 50px 20px; 
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 2.5em; 
-            margin: 0;
-        }
-        .hero p {
-            margin: 15px 0;
-        }
-        .hero a {
-            background: #e91e63; 
-            color: white; 
-            padding: 10px 20px; 
-            text-decoration: none; 
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .hero a:hover {
-            background: #c2185b;
-        }
-        .products {
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            padding: 20px;
-        }
-        .product {
-            background: white; 
-            margin: 10px; 
-            padding: 15px; 
-            border-radius: 8px; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-            width: 300px; 
-            text-align: center;
-        }
-        .product img {
-            max-width: 100%; 
-            height: auto; 
-            border-radius: 5px;
-        }
-        .product h3 {
-            margin: 10px 0 5px;
-        }
-        .product p {
-            font-size: 14px; 
-            color: #666;
-        }
-        .product a {
-            display: inline-block; 
-            margin-top: 10px; 
-            background: #4caf50; 
-            color: white; 
-            padding: 8px 16px; 
-            text-decoration: none; 
-            border-radius: 3px;
-            font-weight: bold;
-        }
-        .product a:hover {
-            background: #388e3c;
-        }
-        .about {
-            background-color: #fff; 
-            padding: 40px 20px; 
-            text-align: center;
-        }
-        footer {
-            background-color: #333; 
-            color: white; 
-            text-align: center; 
-            padding: 20px;
-            font-size: 14px;
-        }
-        @media (max-width: 768px) {
-            .products { 
-                flex-direction: column; 
-                align-items: center; 
-            }
-            .hero h1 { 
-                font-size: 2em; 
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>惠州中考学习网站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family:"Microsoft YaHei",sans-serif; margin:0; padding:0; background:#f9f9f9; }
+    header { background:#005BAC; color:white; padding:1em; text-align:center; }
+    nav { background:#eee; padding:0.5em; text-align:center; position:sticky; top:0; z-index:1000; }
+    nav input { padding:5px; width:200px; }
+    nav a { margin:0 8px; text-decoration:none; color:#005BAC; font-weight:bold; }
+    section { max-width:900px; margin:auto; padding:1em; background:white; margin-top:1em; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    h2 { color:#005BAC; cursor:pointer; }
+    ul { display:none; margin-top:0.5em; }
+    .active ul { display:block; }
+    footer { text-align:center; padding:1em; margin-top:2em; background:#eee; font-size:0.9em; }
+    .quiz { margin:1em 0; padding:1em; border:1px solid #ccc; border-radius:6px; }
+    .quiz button { margin-top:5px; }
+    .wrong { color:red; }
+    .right { color:green; }
+    #wrongList { margin-top:1em; }
+    .clearBtn { margin-top:10px; padding:5px 10px; background:#f33; color:white; border:none; border-radius:5px; cursor:pointer; }
+    #testArea { margin-top:1em; }
+    #testArea button { margin-top:10px; padding:5px 12px; }
+  </style>
 </head>
 <body>
-    <header>
-        <!-- 替换成你本地 images 文件夹里的 logo -->
-        <img src="images/IMG_0507.jpeg" alt="京选返利 Logo" class="logo">
-        <h2>京选返利</h2>
-        <p>专业返利平台，购物享高额返现</p>
-    </header>
-    
-    <nav>
-        <a href="#home">首页</a>
-        <a href="#products">热门商品</a>
-        <a href="#about">关于我们</a>
-        <a href="#contact">联系</a>
-    </nav>
-    
-    <section class="hero" id="home">
-        <h1>欢迎来到京选返利！</h1>
-        <p>通过我们的链接购物，享最高 30% 返现！安全、快速、省钱。</p>
-        <a href="https://union.jd.com/">立即开始返利</a>
-    </section>
-    
-    <section class="products" id="products">
-        <h2 style="text-align: center; width: 100%;">热门返利商品</h2>
-        <div class="product">
-            <img src="images/IMG_0495.jpeg" alt="小米手机">
-            <h3>小米 14 手机</h3>
-            <p>原价 3999 元，返利 15%（约 600 元）+ 优惠券减更多</p>
-            <a href="https://u.jd.com/0awb4Uq">去购买（享返利+券）</a>
-        </div>
-        <div class="product">
-            <img src="images/IMG_0496.jpeg" alt="AirPods">
-            <h3>Apple AirPods Pro</h3>
-            <p>原价 1999 元，返利 20%（约 400 元）+ 优惠券减更多</p>
-            <a href="https://u.jd.com/06wgb65">去购买（享返利+券）</a>
-        </div>
-        <div class="product">
-            <img src="images/IMG_0497.jpeg" alt="华为手表">
-            <h3>华为 Watch GT4</h3>
-            <p>原价 1299 元，返利 10%（约 130 元）+ 优惠券减更多</p>
-            <a href="https://u.jd.com/0Dwuz5a">去购买（享返利+券）</a>
-        </div>
-        <div class="product">
-            <img src="images/IMG_0503.jpeg" alt="苹果手机">
-            <h3>Apple iPhone 16</h3>
-            <p>原价 5999 元，返利 12%（约 720 元）+ 优惠券减更多</p>
-            <a href="https://u.jd.com/iphone16">去购买（享返利+券）</a>
-        </div>
-        <div class="product">
-            <img src="images/IMG_0504.jpeg" alt="华为手机">
-            <h3>华为 Mate 60 Pro</h3>
-            <p>原价 6999 元，返利 10%（约 700 元）+ 优惠券减更多</p>
-            <a href="https://u.jd.com/mate60pro">去购买（享返利+券）</a>
-        </div>
-    </section>
-    
-    <section class="about" id="about">
-        <h2>为什么选择京选返利？</h2>
-        <p>我们是京东联盟官方授权返利平台，提供实时返现查询、专属优惠券。加入我们，购物更聪明！</p>
-        <p>返利流程：点击链接购买 → 确认收货 → 返现到账（7-30 天）。</p>
-    </section>
-    
-    <footer id="contact">
-        <p>&copy; 2025 京选返利. All Rights Reserved.</p>
-        <p>ICP备案号：京ICP备XXXXXXXX号-1 | 联系邮箱：your@email.com</p>
-    </footer>
+  <header>
+    <h1>惠州中考学习网站</h1>
+    <p>复习提纲 · 高频考点 · 自测系统 · 错题本 · 随机测试</p>
+  </header>
+
+  <nav>
+    🔍 搜索：<input type="text" id="searchBox" placeholder="输入关键词...">
+    <a href="#chinese">语文</a>
+    <a href="#math">数学</a>
+    <a href="#quiz">自测</a>
+    <a href="#test">随机测试</a>
+    <a href="#wrong">错题本</a>
+    <a href="#resources">资料下载</a>
+  </nav>
+
+  <!-- 示例学科 -->
+  <section id="chinese" class="subject">
+    <h2>语文</h2>
+    <ul>
+      <li>文言文：重点实词、虚词、特殊句式。</li>
+      <li>古诗文默写：必背篇目 60 首。</li>
+      <li>阅读理解：中心思想、写作手法。</li>
+      <li>作文：常考话题（成长、责任、梦想）。</li>
+    </ul>
+  </section>
+
+  <section id="math" class="subject">
+    <h2>数学</h2>
+    <ul>
+      <li>代数：二次函数、方程组应用题。</li>
+      <li>几何：相似、勾股定理、圆的性质。</li>
+      <li>统计与概率：频率、扇形图、箱线图。</li>
+      <li>压轴题：动点、几何变换模型。</li>
+    </ul>
+  </section>
+
+  <!-- 自测区（固定题目） -->
+  <section id="quiz">
+    <h2>自测题库</h2>
+    <div class="quiz" data-answer="C">
+      <p>【数学】已知 x²-5x+6=0，则解为？</p>
+      <ol type="A">
+        <li>1 和 6</li>
+        <li>2 和 5</li>
+        <li>2 和 3</li>
+        <li>3 和 6</li>
+      </ol>
+      <button onclick="checkAnswer(this, 'C')">答题</button>
+      <p class="result"></p>
+    </div>
+
+    <div class="quiz" data-answer="B">
+      <p>【语文】《岳阳楼记》作者是？</p>
+      <ol type="A">
+        <li>苏轼</li>
+        <li>范仲淹</li>
+        <li>欧阳修</li>
+        <li>杜甫</li>
+      </ol>
+      <button onclick="checkAnswer(this, 'B')">答题</button>
+      <p class="result"></p>
+    </div>
+  </section>
+
+  <!-- 随机测试 -->
+  <section id="test">
+    <h2>随机测试</h2>
+    <button onclick="startTest()">开始测试（5题）</button>
+    <div id="testArea"></div>
+  </section>
+
+  <!-- 错题本 -->
+  <section id="wrong">
+    <h2>错题本</h2>
+    <div id="wrongList"></div>
+    <button class="clearBtn" onclick="clearWrong()">清空错题本</button>
+  </section>
+
+  <!-- 资料下载 -->
+  <section id="resources">
+    <h2>资料下载</h2>
+    <ul>
+      <li><a href="docs/中考语文重点.pdf" target="_blank">中考语文重点.pdf</a></li>
+      <li><a href="docs/中考数学公式总结.pdf" target="_blank">数学公式总结.pdf</a></li>
+      <li><a href="docs/中考英语作文模板.docx" target="_blank">英语作文模板.docx</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 惠州中考知识库 | GitHub Pages 学习网站</p>
+  </footer>
+
+  <script>
+    // 折叠功能
+    document.querySelectorAll("h2").forEach(h2=>{
+      h2.addEventListener("click", ()=>{
+        h2.parentElement.classList.toggle("active");
+      });
+    });
+
+    // 搜索功能
+    document.getElementById("searchBox").addEventListener("input", function(){
+      let keyword = this.value.trim();
+      document.querySelectorAll("section ul li").forEach(li=>{
+        li.style.display = keyword && !li.innerText.includes(keyword) ? "none":"list-item";
+      });
+    });
+
+    // 错题本存储
+    function saveWrong(question, answer, correct){
+      let wrongs = JSON.parse(localStorage.getItem("wrongs") || "[]");
+      wrongs.push({question, answer, correct});
+      localStorage.setItem("wrongs", JSON.stringify(wrongs));
+      loadWrongs();
+    }
+    function loadWrongs(){
+      let wrongs = JSON.parse(localStorage.getItem("wrongs") || "[]");
+      let container = document.getElementById("wrongList");
+      container.innerHTML = "";
+      if(wrongs.length === 0){
+        container.innerHTML = "<p>暂无错题 🎉</p>";
+        return;
+      }
+      wrongs.forEach((w,i)=>{
+        let div = document.createElement("div");
+        div.innerHTML = `<p><b>${i+1}. ${w.question}</b><br>你的答案：<span class='wrong'>${w.answer}</span> | 正确答案：<span class='right'>${w.correct}</span></p>`;
+        container.appendChild(div);
+      });
+    }
+    function clearWrong(){
+      localStorage.removeItem("wrongs");
+      loadWrongs();
+    }
+
+    // 测验功能（自测区）
+    function checkAnswer(btn, correct){
+      let quiz = btn.parentElement;
+      let result = quiz.querySelector(".result");
+      if(result.innerText) return;
+      let chosen = prompt("请输入你的答案 (A/B/C/D)：");
+      if(!chosen) return;
+      if(chosen.toUpperCase() === correct){
+        result.innerText = "回答正确 ✅";
+        result.className = "right";
+      } else {
+        result.innerText = "回答错误 ❌ 正确答案：" + correct;
+        result.className = "wrong";
+        let question = quiz.querySelector("p").innerText;
+        saveWrong(question, chosen.toUpperCase(), correct);
+      }
+    }
+
+    // 题库
+    const questionBank = [
+      {q:"【数学】已知 x²-5x+6=0，则解为？", opts:["1和6","2和5","2和3","3和6"], ans:"C"},
+      {q:"【语文】《岳阳楼记》作者是？", opts:["苏轼","范仲淹","欧阳修","杜甫"], ans:"B"},
+      {q:"【英语】下列哪个是过去完成时？", opts:["I go","I have gone","I had gone","I will go"], ans:"C"},
+      {q:"【物理】电流的单位是？", opts:["伏特","安培","瓦特","欧姆"], ans:"B"},
+      {q:"【化学】水的化学式是？", opts:["H2O","O2","CO2","H2"], ans:"A"},
+      {q:"【历史】辛亥革命发生在？", opts:["1900","1911","1919","1937"], ans:"B"}
+    ];
+
+    // 随机测试
+    function startTest(){
+      let testArea = document.getElementById("testArea");
+      testArea.innerHTML = "";
+      let score = 0;
+      let questions = questionBank.sort(()=>Math.random()-0.5).slice(0,5);
+      let i=0;
+      function nextQ(){
+        if(i>=questions.length){
+          testArea.innerHTML += `<p><b>测试结束 🎉</b> 得分：${score}/${questions.length}</p>`;
+          return;
+        }
+        let q = questions[i];
+        let html = `<div class='quiz'><p>${i+1}. ${q.q}</p><ol type="A">`;
+        q.opts.forEach(opt=> html += `<li>${opt}</li>`);
+        html += `</ol><button>答题</button><p class="result"></p></div>`;
+        testArea.innerHTML = html;
+        let btn = testArea.querySelector("button");
+        btn.onclick = ()=>{
+          let chosen = prompt("请输入你的答案 (A/B/C/D)：");
+          if(!chosen) return;
+          let result = testArea.querySelector(".result");
+          if(chosen.toUpperCase()===q.ans){
+            result.innerText="回答正确 ✅"; result.className="right"; score++;
+          }else{
+            result.innerText="回答错误 ❌ 正确答案："+q.ans; result.className="wrong";
+            saveWrong(q.q, chosen.toUpperCase(), q.ans);
+          }
+          i++;
+          setTimeout(nextQ,1000);
+        };
+      }
+      nextQ();
+    }
+
+    // 页面加载时读取错题
+    loadWrongs();
+  </script>
 </body>
 </html>
