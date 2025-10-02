@@ -1,230 +1,195 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>惠州中考学习网站</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family:"Microsoft YaHei",sans-serif; margin:0; padding:0; background:#f9f9f9; }
-    header { background:#005BAC; color:white; padding:1em; text-align:center; }
-    nav { background:#eee; padding:0.5em; text-align:center; position:sticky; top:0; z-index:1000; }
-    nav input { padding:5px; width:200px; }
-    nav a { margin:0 8px; text-decoration:none; color:#005BAC; font-weight:bold; }
-    section { max-width:900px; margin:auto; padding:1em; background:white; margin-top:1em; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    h2 { color:#005BAC; cursor:pointer; }
-    ul { display:none; margin-top:0.5em; }
-    .active ul { display:block; }
-    footer { text-align:center; padding:1em; margin-top:2em; background:#eee; font-size:0.9em; }
-    .quiz { margin:1em 0; padding:1em; border:1px solid #ccc; border-radius:6px; }
-    .quiz button { margin-top:5px; }
-    .wrong { color:red; }
-    .right { color:green; }
-    #wrongList { margin-top:1em; }
-    .clearBtn { margin-top:10px; padding:5px 10px; background:#f33; color:white; border:none; border-radius:5px; cursor:pointer; }
-    #testArea { margin-top:1em; }
-    #testArea button { margin-top:10px; padding:5px 12px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="惠州市砖混结构施工指南，含易错点和规避措施，适合中考学习和本地施工参考">
+    <meta name="keywords" content="砖混结构, 惠州施工, 施工指南, 建筑工程">
+    <title>惠州市砖混结构施工指南</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { background: #f4f4f4; color: #333; }
+        header { background: #007bff; color: white; padding: 2rem; text-align: center; }
+        nav { background: #343a40; padding: 1rem; }
+        nav a { color: white; margin: 0 1rem; text-decoration: none; }
+        nav a:hover { color: #ffc107; }
+        .container { max-width: 900px; margin: 2rem auto; padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; }
+        th { background: #007bff; color: white; }
+        .search-box { text-align: center; margin: 1rem; }
+        #search { width: 100%; max-width: 500px; padding: 0.5rem; }
+        footer { background: #343a40; color: white; text-align: center; padding: 1rem; }
+        .chart-container { max-width: 600px; margin: 2rem auto; }
+        @media (max-width: 600px) { nav a { display: block; margin: 0.5rem 0; } }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>惠州中考学习网站</h1>
-    <p>复习提纲 · 高频考点 · 自测系统 · 错题本 · 随机测试</p>
-  </header>
-
-  <nav>
-    🔍 搜索：<input type="text" id="searchBox" placeholder="输入关键词...">
-    <a href="#chinese">语文</a>
-    <a href="#math">数学</a>
-    <a href="#quiz">自测</a>
-    <a href="#test">随机测试</a>
-    <a href="#wrong">错题本</a>
-    <a href="#resources">资料下载</a>
-  </nav>
-
-  <!-- 示例学科 -->
-  <section id="chinese" class="subject">
-    <h2>语文</h2>
-    <ul>
-      <li>文言文：重点实词、虚词、特殊句式。</li>
-      <li>古诗文默写：必背篇目 60 首。</li>
-      <li>阅读理解：中心思想、写作手法。</li>
-      <li>作文：常考话题（成长、责任、梦想）。</li>
-    </ul>
-  </section>
-
-  <section id="math" class="subject">
-    <h2>数学</h2>
-    <ul>
-      <li>代数：二次函数、方程组应用题。</li>
-      <li>几何：相似、勾股定理、圆的性质。</li>
-      <li>统计与概率：频率、扇形图、箱线图。</li>
-      <li>压轴题：动点、几何变换模型。</li>
-    </ul>
-  </section>
-
-  <!-- 自测区（固定题目） -->
-  <section id="quiz">
-    <h2>自测题库</h2>
-    <div class="quiz" data-answer="C">
-      <p>【数学】已知 x²-5x+6=0，则解为？</p>
-      <ol type="A">
-        <li>1 和 6</li>
-        <li>2 和 5</li>
-        <li>2 和 3</li>
-        <li>3 和 6</li>
-      </ol>
-      <button onclick="checkAnswer(this, 'C')">答题</button>
-      <p class="result"></p>
+    <header>
+        <h1>惠州市砖混结构施工指南</h1>
+        <p>基于国家标准及惠州地区经验 | 2025 | 适合中考学习和本地施工</p>
+    </header>
+    <nav>
+        <a href="#materials">材料采购</a>
+        <a href="#foundation">基础施工</a>
+        <a href="#structure">主体结构</a>
+        <a href="#roof">屋面施工</a>
+        <a href="#windows">门窗安装</a>
+        <a href="#decoration">装修</a>
+        <a href="#inspection">验收</a>
+        <a href="#summary">问题汇总</a>
+        <a href="#chart">时间分布</a>
+    </nav>
+    <div class="search-box">
+        <input type="text" id="search" class="form-control" placeholder="搜索施工问题或阶段（如‘渗漏’）" onkeyup="searchContent()">
     </div>
 
-    <div class="quiz" data-answer="B">
-      <p>【语文】《岳阳楼记》作者是？</p>
-      <ol type="A">
-        <li>苏轼</li>
-        <li>范仲淹</li>
-        <li>欧阳修</li>
-        <li>杜甫</li>
-      </ol>
-      <button onclick="checkAnswer(this, 'B')">答题</button>
-      <p class="result"></p>
+    <div class="container" id="materials">
+        <h2>1. 材料采购阶段（1-2周）</h2>
+        <p><strong>步骤</strong>：根据设计图纸编制材料清单，采购水泥（32.5/42.5级）、钢筋（HRB400）、砖块（MU10粘土砖）、砂石、模板等，选择本地供应商，索要合格证及进场检测报告。预算占总造价30%-40%。</p>
+        <table>
+            <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
+            <tr><td>材料质量不达标（钢筋偏差>±0.4mm）</td><td>梁板开裂</td><td>第三方检测，抽样≥10%</td></tr>
+            <tr><td>砖块选错（如用加气块）</td><td>吸水率高，砌筑不稳</td><td>MU10级粘土砖，密度≥1800kg/m³</td></tr>
+            <tr><td>存储不当（水泥受潮）</td><td>浪费5%-10%</td><td>雨棚覆盖，钢筋刷防锈漆</td></tr>
+        </table>
+        <p><strong>惠州注意</strong>：湿热气候易使水泥结块，采购后1个月内使用，推荐本地供应商如惠州建龙建材。</p>
     </div>
-  </section>
 
-  <!-- 随机测试 -->
-  <section id="test">
-    <h2>随机测试</h2>
-    <button onclick="startTest()">开始测试（5题）</button>
-    <div id="testArea"></div>
-  </section>
+    <div class="container" id="foundation">
+        <h2>2. 场地准备与基础施工阶段（2-4周）</h2>
+        <p><strong>步骤</strong>：平整场地，放线定位，开挖基槽（深度1-1.5m），浇筑独立/条形基础（C25混凝土），钢筋绑扎后养护7-14天。设计荷载≥150kPa。</p>
+        <table>
+            <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
+            <tr><td>轴线偏差>5mm</td><td>墙体错位</td><td>全站仪复核，拍照存档</td></tr>
+            <tr><td>钢筋保护层<40mm</td><td>锈蚀风险</td><td>垫块固定，超声波测厚</td></tr>
+            <tr><td>回填土压实度<85%</td><td>基础沉降</td><td>分层回填（200mm/层），环刀法检测</td></tr>
+        </table>
+        <p><strong>惠州注意</strong>：雨季基槽积水，需抽水并检查土质承载力（参考惠州市地质勘察报告）。</p>
+    </div>
 
-  <!-- 错题本 -->
-  <section id="wrong">
-    <h2>错题本</h2>
-    <div id="wrongList"></div>
-    <button class="clearBtn" onclick="clearWrong()">清空错题本</button>
-  </section>
+    <div class="container" id="structure">
+        <h2>3. 主体结构施工阶段（4-8周）</h2>
+        <p><strong>步骤</strong>：砌墙体（1:4水泥砂浆，墙厚≥240mm），预埋门窗洞口；支模绑扎梁柱钢筋（梁高≥200mm），浇筑楼板（C25混凝土）；逐层施工至顶。</p>
+        <table>
+            <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
+            <tr><td>墙体垂直度偏差>8mm</td><td>梁板连接差</td><td>靠尺检查，调整铅垂线</td></tr>
+            <tr><td>钢筋搭接<35d</td><td>结构不稳</td><td>双股扎丝，搭接区错开</td></tr>
+            <tr><td>砂浆空鼓>5%</td><td>强度不均</td><td>1:3砂浆，敲击检查</td></tr>
+        </table>
+        <p><strong>惠州注意</strong>：高温高湿下砂浆初凝快，砌筑前湿润砖面，避免干缩裂缝。</p>
+    </div>
 
-  <!-- 资料下载 -->
-  <section id="resources">
-    <h2>资料下载</h2>
-    <ul>
-      <li><a href="docs/中考语文重点.pdf" target="_blank">中考语文重点.pdf</a></li>
-      <li><a href="docs/中考数学公式总结.pdf" target="_blank">数学公式总结.pdf</a></li>
-      <li><a href="docs/中考英语作文模板.docx" target="_blank">英语作文模板.docx</a></li>
-    </ul>
-  </section>
+    <div class="container" id="roof">
+        <h2>4. 屋面施工阶段（1-2周）</h2>
+        <p><strong>步骤</strong>：浇筑屋面板（坡度1%-2%），铺SBS防水卷材（2层），找平层（C20细石混凝土），加保温层（挤塑板）。</p>
+        <table>
+            <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
+            <tr><td>防水层搭接<100mm</td><td>渗漏</td><td>热熔搭接，闭水试验24h</td></tr>
+            <tr><td>坡度<0.5%</td><td>积水</td><td>激光仪测坡，坡模支设</td></tr>
+            <tr><td>保温层固定松</td><td>脱落</td><td>锚钉间距≤300mm</td></tr>
+        </table>
+        <p><strong>惠州注意</strong>：台风季需加固防水层，推荐使用高耐久SBS卷材（如惠州华南建材市场采购）。</p>
+    </div>
 
-  <footer>
-    <p>© 2025 惠州中考知识库 | GitHub Pages 学习网站</p>
-  </footer>
+    <div class="container" id="windows">
+        <h2>5. 门窗安装阶段（1周）</h2>
+        <p><strong>步骤</strong>：测量洞口，安装铝合金/塑钢窗框，膨胀螺栓固定，硅胶密封，窗台高≥900mm。</p>
+        <table>
+            <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
+            <tr><td>洞口误差>5mm</td><td>框变形</td><td>预留10mm缝隙，二次测量</td></tr>
+            <tr><td>密封不严</td><td>漏风</td><td>中性硅胶，气密试验≤2.5m³/(m²·h)</td></tr>
+            <tr><td>窗台坡度反</td><td>雨水倒灌</td><td>外高内低1%-2%</td></tr>
+        </table>
+        <p><strong>惠州注意</strong>：沿海盐雾腐蚀，选耐腐铝合金窗（如惠州本地品牌“南华门窗”）。</p>
+    </div>
 
-  <script>
-    // 折叠功能
-    document.querySelectorAll("h2").forEach(h2=>{
-      h2.addEventListener("click", ()=>{
-        h2.parentElement.classList.toggle("active");
-      });
-    });
+    <div class="container" id="decoration">
+        <h2>6. 室内外装修阶段（4-6周）</h2>
+        <p><strong>步骤</strong>：抹灰（1:3水泥砂浆），地面找平（C15混凝土），墙面批腻子刷漆；外墙贴砖/涂料；安装水电管线、洁具。</p>
+        <table>
+            <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
+            <tr><td>抹灰厚度不均（>20mm）</td><td>空鼓</td><td>分层抹灰（7-10mm/层）</td></tr>
+            <tr><td>水电管线弯曲半径<5倍直径</td><td>短路</td><td>PVC管预埋，通线试验</td></tr>
+            <tr><td>外墙排水坡<1:10</td><td>渗水</td><td>PVC管坡向1:100</td></tr>
+        </table>
+        <p><strong>惠州注意</strong>：外墙涂料选防霉型（如立邦防潮系列），应对湿热环境。</p>
+    </div>
 
-    // 搜索功能
-    document.getElementById("searchBox").addEventListener("input", function(){
-      let keyword = this.value.trim();
-      document.querySelectorAll("section ul li").forEach(li=>{
-        li.style.display = keyword && !li.innerText.includes(keyword) ? "none":"list-item";
-      });
-    });
+    <div class="container" id="inspection">
+        <h2>7. 完工验收阶段（1周）</h2>
+        <p><strong>步骤</strong>：自检、监理复验，检查裂缝、沉降、防水，办理竣工图、合格证，清洁现场。</p>
+        <table>
+            <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
+            <tr><td>隐蔽工程未存档</td><td>验收不通过</td><td>每阶段签证，数字化存档</td></tr>
+            <tr><td>沉降观测不足</td><td>隐形裂缝</td><td>每月测读，Δ/H≤1/500</td></tr>
+            <tr><td>消防烟感间距>3m</td><td>隐患</td><td>按GB 50016检测</td></tr>
+        </table>
+        <p><strong>惠州注意</strong>：提交惠州市住建局备案，需符合地方抗震8度设防要求。</p>
+    </div>
 
-    // 错题本存储
-    function saveWrong(question, answer, correct){
-      let wrongs = JSON.parse(localStorage.getItem("wrongs") || "[]");
-      wrongs.push({question, answer, correct});
-      localStorage.setItem("wrongs", JSON.stringify(wrongs));
-      loadWrongs();
-    }
-    function loadWrongs(){
-      let wrongs = JSON.parse(localStorage.getItem("wrongs") || "[]");
-      let container = document.getElementById("wrongList");
-      container.innerHTML = "";
-      if(wrongs.length === 0){
-        container.innerHTML = "<p>暂无错题 🎉</p>";
-        return;
-      }
-      wrongs.forEach((w,i)=>{
-        let div = document.createElement("div");
-        div.innerHTML = `<p><b>${i+1}. ${w.question}</b><br>你的答案：<span class='wrong'>${w.answer}</span> | 正确答案：<span class='right'>${w.correct}</span></p>`;
-        container.appendChild(div);
-      });
-    }
-    function clearWrong(){
-      localStorage.removeItem("wrongs");
-      loadWrongs();
-    }
+    <div class="container" id="summary">
+        <h2>8. 常见问题汇总</h2>
+        <table>
+            <tr><th>阶段</th><th>常见问题</th><th>建议</th></tr>
+            <tr><td>材料采购</td><td>假冒钢筋</td><td>索要检测报告，优先大厂</td></tr>
+            <tr><td>基础施工</td><td>沉降不均</td><td>回填压实度≥93%</td></tr>
+            <tr><td>主体施工</td><td>梁柱节点弱</td><td>隐蔽工程签证</td></tr>
+            <tr><td>屋面施工</td><td>渗漏</td><td>闭水试验24h</td></tr>
+            <tr><td>门窗安装</td><td>漏风</td><td>中性硅胶密封</td></tr>
+            <tr><td>装修</td><td>墙面裂缝</td><td>分层抹灰，湿润基层</td></tr>
+            <tr><td>验收</td><td>消防不合格</td><td>烟感间距≤3m</td></tr>
+        </table>
+    </div>
 
-    // 测验功能（自测区）
-    function checkAnswer(btn, correct){
-      let quiz = btn.parentElement;
-      let result = quiz.querySelector(".result");
-      if(result.innerText) return;
-      let chosen = prompt("请输入你的答案 (A/B/C/D)：");
-      if(!chosen) return;
-      if(chosen.toUpperCase() === correct){
-        result.innerText = "回答正确 ✅";
-        result.className = "right";
-      } else {
-        result.innerText = "回答错误 ❌ 正确答案：" + correct;
-        result.className = "wrong";
-        let question = quiz.querySelector("p").innerText;
-        saveWrong(question, chosen.toUpperCase(), correct);
-      }
-    }
+    <div class="container chart-container" id="chart">
+        <h2>9. 施工阶段时间分布</h2>
+        <canvas id="timeChart"></canvas>
+    </div>
 
-    // 题库
-    const questionBank = [
-      {q:"【数学】已知 x²-5x+6=0，则解为？", opts:["1和6","2和5","2和3","3和6"], ans:"C"},
-      {q:"【语文】《岳阳楼记》作者是？", opts:["苏轼","范仲淹","欧阳修","杜甫"], ans:"B"},
-      {q:"【英语】下列哪个是过去完成时？", opts:["I go","I have gone","I had gone","I will go"], ans:"C"},
-      {q:"【物理】电流的单位是？", opts:["伏特","安培","瓦特","欧姆"], ans:"B"},
-      {q:"【化学】水的化学式是？", opts:["H2O","O2","CO2","H2"], ans:"A"},
-      {q:"【历史】辛亥革命发生在？", opts:["1900","1911","1919","1937"], ans:"B"}
-    ];
+    <footer>
+        <p>&copy; 2025 惠州施工指南 | 参考：<a href="http://jyj.huizhou.gov.cn/" style="color: #ffc107;">惠州市住建局</a> | 仅供学习参考</p>
+    </footer>
 
-    // 随机测试
-    function startTest(){
-      let testArea = document.getElementById("testArea");
-      testArea.innerHTML = "";
-      let score = 0;
-      let questions = questionBank.sort(()=>Math.random()-0.5).slice(0,5);
-      let i=0;
-      function nextQ(){
-        if(i>=questions.length){
-          testArea.innerHTML += `<p><b>测试结束 🎉</b> 得分：${score}/${questions.length}</p>`;
-          return;
+    <script>
+        // 搜索功能
+        function searchContent() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let sections = document.querySelectorAll('.container');
+            sections.forEach(section => {
+                let text = section.textContent.toLowerCase();
+                section.style.display = text.includes(input) ? 'block' : 'none';
+            });
         }
-        let q = questions[i];
-        let html = `<div class='quiz'><p>${i+1}. ${q.q}</p><ol type="A">`;
-        q.opts.forEach(opt=> html += `<li>${opt}</li>`);
-        html += `</ol><button>答题</button><p class="result"></p></div>`;
-        testArea.innerHTML = html;
-        let btn = testArea.querySelector("button");
-        btn.onclick = ()=>{
-          let chosen = prompt("请输入你的答案 (A/B/C/D)：");
-          if(!chosen) return;
-          let result = testArea.querySelector(".result");
-          if(chosen.toUpperCase()===q.ans){
-            result.innerText="回答正确 ✅"; result.className="right"; score++;
-          }else{
-            result.innerText="回答错误 ❌ 正确答案："+q.ans; result.className="wrong";
-            saveWrong(q.q, chosen.toUpperCase(), q.ans);
-          }
-          i++;
-          setTimeout(nextQ,1000);
-        };
-      }
-      nextQ();
-    }
 
-    // 页面加载时读取错题
-    loadWrongs();
-  </script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Chart.js图表
+        const ctx = document.getElementById('timeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['材料采购', '基础施工', '主体结构', '屋面施工', '门窗安装', '室内外装修', '完工验收'],
+                datasets: [{
+                    label: '耗时（周）',
+                    data: [2, 4, 8, 2, 1, 6, 1],
+                    backgroundColor: ['#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8', '#6610f2', '#6c757d'],
+                    borderColor: ['#0056b3', '#218838', '#c82333', '#e0a800', '#138496', '#5300eb', '#5a6268'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: { y: { beginAtZero: true, title: { display: true, text: '耗时（周）' } } },
+                plugins: { title: { display: true, text: '砖混结构施工阶段时间分布' } }
+            }
+        });
+    </script>
 </body>
 </html>
