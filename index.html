@@ -3,143 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="惠州市砖混结构施工指南，含易错点和规避措施，适合中考学习和本地施工参考">
-    <meta name="keywords" content="砖混结构, 惠州施工, 施工指南, 建筑工程">
-    <title>惠州市砖混结构施工指南</title>
+    <meta name="description" content="河南省砖混结构住宅施工指南，含黄土地基、水电安装等易错点和规避措施，适合河南农村自建房参考">
+    <meta name="keywords" content="砖混结构, 河南建房, 黄土地基, 水电安装, 施工规范">
+    <title>河南省砖混结构住宅施工指南</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { background: #f4f4f4; color: #333; }
-        header { background: #007bff; color: white; padding: 2rem; text-align: center; }
+        header { background: #dc3545; color: white; padding: 2rem; text-align: center; } /* 河南红色主题 */
         nav { background: #343a40; padding: 1rem; }
         nav a { color: white; margin: 0 1rem; text-decoration: none; }
         nav a:hover { color: #ffc107; }
         .container { max-width: 900px; margin: 2rem auto; padding: 2rem; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
         table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
         th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; }
-        th { background: #007bff; color: white; }
+        th { background: #dc3545; color: white; }
         .search-box { text-align: center; margin: 1rem; }
         #search { width: 100%; max-width: 500px; padding: 0.5rem; }
         footer { background: #343a40; color: white; text-align: center; padding: 1rem; }
         .chart-container { max-width: 600px; margin: 2rem auto; }
+        .important { color: red; font-weight: bold; } /* 红色标注重要点 */
         @media (max-width: 600px) { nav a { display: block; margin: 0.5rem 0; } }
     </style>
 </head>
 <body>
     <header>
-        <h1>惠州市砖混结构施工指南</h1>
-        <p>基于国家标准及惠州地区经验 | 2025 | 适合中考学习和本地施工</p>
+        <h1>河南省砖混结构住宅施工指南</h1>
+        <p>基于国家标准及河南黄土地区经验 | 2025 | 适合农村自建房，含地基、水电等细节</p>
     </header>
     <nav>
         <a href="#materials">材料采购</a>
-        <a href="#foundation">基础施工</a>
+        <a href="#foundation">地基基础</a>
         <a href="#structure">主体结构</a>
         <a href="#roof">屋面施工</a>
         <a href="#windows">门窗安装</a>
-        <a href="#decoration">装修</a>
+        <a href="#decoration">装修（含水电）</a>
         <a href="#inspection">验收</a>
         <a href="#summary">问题汇总</a>
         <a href="#chart">时间分布</a>
     </nav>
     <div class="search-box">
-        <input type="text" id="search" class="form-control" placeholder="搜索施工问题或阶段（如‘渗漏’）" onkeyup="searchContent()">
+        <input type="text" id="search" class="form-control" placeholder="搜索施工问题或阶段（如‘黄土’或‘水管’）" onkeyup="searchContent()">
     </div>
 
     <div class="container" id="materials">
         <h2>1. 材料采购阶段（1-2周）</h2>
-        <p><strong>步骤</strong>：根据设计图纸编制材料清单，采购水泥（32.5/42.5级）、钢筋（HRB400）、砖块（MU10粘土砖）、砂石、模板等，选择本地供应商，索要合格证及进场检测报告。预算占总造价30%-40%。</p>
+        <p><strong>步骤</strong>：根据设计图纸编制材料清单，采购水泥（<span class="important">42.5级普通硅酸盐水泥</span>）、钢筋（HRB400，φ6-φ25）、砖块（<span class="important">MU10级粘土实心砖</span>，强度不低于10MPa）、砂石（中粗砂，级配良好）、模板（钢或竹胶合板）、PVC水管（UPVC，DN20-50）、电线（BV-2.5mm²照明，BV-4mm²插座）、防水材料（SBS卷材）。选择河南本地供应商（如郑州建材市场），索要合格证及进场检测报告。预算占总造价30%-40%。</p>
+        <p><strong>河南注意</strong>：黄土地区易湿陷，优先选抗冻水泥；水管选耐低温PVC，电线选阻燃型。参考《河南省工程质量手册》。</p>
         <table>
             <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
-            <tr><td>材料质量不达标（钢筋偏差>±0.4mm）</td><td>梁板开裂</td><td>第三方检测，抽样≥10%</td></tr>
-            <tr><td>砖块选错（如用加气块）</td><td>吸水率高，砌筑不稳</td><td>MU10级粘土砖，密度≥1800kg/m³</td></tr>
-            <tr><td>存储不当（水泥受潮）</td><td>浪费5%-10%</td><td>雨棚覆盖，钢筋刷防锈漆</td></tr>
+            <tr><td>材料质量不达标（钢筋偏差>±0.4mm）</td><td>梁板开裂</td><td><span class="important">第三方检测，抽样≥10%</span>，拒收无合格证</td></tr>
+            <tr><td>砖块选错（如用空心砖）</td><td>承重不足，黄土湿陷加剧</td><td><span class="important">MU10级实心砖，密度≥1800kg/m³</span>，检查吸水率≤16%</td></tr>
+            <tr><td>存储不当（水泥受潮）</td><td>强度降低20%，浪费5%-10%</td><td>雨棚覆盖，钢筋刷防锈漆；<span class="important">河南冬季干燥，防静电</span></td></tr>
         </table>
-        <p><strong>惠州注意</strong>：湿热气候易使水泥结块，采购后1个月内使用，推荐本地供应商如惠州建龙建材。</p>
     </div>
 
     <div class="container" id="foundation">
-        <h2>2. 场地准备与基础施工阶段（2-4周）</h2>
-        <p><strong>步骤</strong>：平整场地，放线定位，开挖基槽（深度1-1.5m），浇筑独立/条形基础（C25混凝土），钢筋绑扎后养护7-14天。设计荷载≥150kPa。</p>
+        <h2>2. 场地准备与地基基础施工阶段（2-4周）</h2>
+        <p><strong>步骤</strong>：平整场地（坡度<1:100），放线定位（轴线偏差<5mm），开挖基槽（深度1.2-1.8m，根据黄土层厚度）。河南黄土易塌方、湿陷，<span class="important">必须地质勘察</span>，持力层为稳定老黄土（承载力≥120kPa）。处理湿陷性黄土：样孔确定参数，使用振冲器打碎石桩（桩径0.6-0.8m，桩长≥8m，碎石粒径5-40mm）；固结桩孔，清孔后浇筑素混凝土垫层（C10，厚100mm）；浇筑条形基础（C25混凝土，宽400-600mm，高400mm），钢筋绑扎（双层φ12@150），保护层<span class="important">≥50mm</span>。回填土分层压实，养护14天。</p>
+        <p><strong>河南注意</strong>：黄土含水率<20%，雨季排水沟深0.5m；参考《湿陷性黄土地区碎石桩地基施工方法》（CN114808918A）和《河南省平顶山市农村住房设计图册》。</p>
         <table>
             <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
-            <tr><td>轴线偏差>5mm</td><td>墙体错位</td><td>全站仪复核，拍照存档</td></tr>
-            <tr><td>钢筋保护层<40mm</td><td>锈蚀风险</td><td>垫块固定，超声波测厚</td></tr>
-            <tr><td>回填土压实度<85%</td><td>基础沉降</td><td>分层回填（200mm/层），环刀法检测</td></tr>
+            <tr><td>轴线偏差>5mm</td><td>墙体错位，基础不稳</td><td><span class="important">全站仪复核，双人签证</span>，拍照存档</td></tr>
+            <tr><td>钢筋保护层<50mm（黄土腐蚀性强）</td><td>锈蚀加速，沉降不均</td><td><span class="important">用混凝土垫块固定，超声波测厚</span></td></tr>
+            <tr><td>回填土压实度<90%（黄土易松）</td><td>基础沉降>20mm，裂缝</td><td><span class="important">分层200mm，击实≥93%</span>，环刀法检测</td></tr>
+            <tr><td>忽略碎石桩处理湿陷黄土</td><td>地基液化，房屋倾斜</td><td><span class="important">地质报告确认，桩间距1.5-2m</span>，振冲深度≥持力层</td></tr>
+            <tr><td>混凝土振捣不实（蜂窝>2%）</td><td>强度<设计80%</td><td><span class="important">分层≤300mm，插入振捣30s/点</span></td></tr>
         </table>
-        <p><strong>惠州注意</strong>：雨季基槽积水，需抽水并检查土质承载力（参考惠州市地质勘察报告）。</p>
     </div>
 
     <div class="container" id="structure">
         <h2>3. 主体结构施工阶段（4-8周）</h2>
-        <p><strong>步骤</strong>：砌墙体（1:4水泥砂浆，墙厚≥240mm），预埋门窗洞口；支模绑扎梁柱钢筋（梁高≥200mm），浇筑楼板（C25混凝土）；逐层施工至顶。</p>
+        <p><strong>步骤</strong>：砌墙体（1:4水泥砂浆，墙厚<span class="important">≥240mm</span>，灰缝满灌≤10mm），预埋门窗洞口（尺寸偏差<5mm）；支模绑扎梁柱钢筋（梁高≥200mm，柱φ16主筋，箍筋φ8@100），浇筑楼板（C25混凝土，现浇钢筋混凝土板，厚度100-120mm）；逐层施工至顶，水平灰缝<span class="important">≤3mm</span>。河南抗震设防烈度7-8度，梁柱节点加密率20%。</p>
+        <p><strong>河南注意</strong>：黄土干燥，砂浆加缓凝剂；参考《砖混结构墙体裂缝防治》和《河南省工程质量手册》。</p>
         <table>
             <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
-            <tr><td>墙体垂直度偏差>8mm</td><td>梁板连接差</td><td>靠尺检查，调整铅垂线</td></tr>
-            <tr><td>钢筋搭接<35d</td><td>结构不稳</td><td>双股扎丝，搭接区错开</td></tr>
-            <tr><td>砂浆空鼓>5%</td><td>强度不均</td><td>1:3砂浆，敲击检查</td></tr>
+            <tr><td>墙体垂直度偏差>8mm/层</td><td>梁板连接差，裂缝</td><td><span class="important">铅垂线检查，每3m复测</span></td></tr>
+            <tr><td>钢筋搭接<40d（d=直径）</td><td>结构不稳，抗震弱</td><td><span class="important">双股扎丝固定，搭接错开</span>，隐蔽签证</td></tr>
+            <tr><td>砂浆饱满度<95%</td><td>空鼓，强度不均</td><td><span class="important">1:3砂浆，敲击无空响</span></td></tr>
+            <tr><td>梁柱尺寸偏差>5mm</td><td>节点应力集中</td><td><span class="important">模板精度±2mm，浇筑前复核</span></td></tr>
         </table>
-        <p><strong>惠州注意</strong>：高温高湿下砂浆初凝快，砌筑前湿润砖面，避免干缩裂缝。</p>
     </div>
 
     <div class="container" id="roof">
         <h2>4. 屋面施工阶段（1-2周）</h2>
-        <p><strong>步骤</strong>：浇筑屋面板（坡度1%-2%），铺SBS防水卷材（2层），找平层（C20细石混凝土），加保温层（挤塑板）。</p>
+        <p><strong>步骤</strong>：浇筑屋面板（坡度1%-2%，C25混凝土，厚120mm），铺SBS防水卷材（<span class="important">2层，搭接150mm</span>），找平层（C20细石混凝土，厚50mm），加保温层（挤塑板XPS，厚50mm，R值≥1.5）。</p>
+        <p><strong>河南注意</strong>：冬季防冻，卷材热熔温度<200℃；参考《农村自建房安全常识说明》。</p>
         <table>
             <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
-            <tr><td>防水层搭接<100mm</td><td>渗漏</td><td>热熔搭接，闭水试验24h</td></tr>
-            <tr><td>坡度<0.5%</td><td>积水</td><td>激光仪测坡，坡模支设</td></tr>
-            <tr><td>保温层固定松</td><td>脱落</td><td>锚钉间距≤300mm</td></tr>
+            <tr><td>防水搭接<150mm</td><td>渗漏</td><td><span class="important">热熔封闭，闭水试验48h无渗</span></td></tr>
+            <tr><td>坡度<0.5%</td><td>积水冻裂</td><td><span class="important">激光测坡，坡模支设</span></td></tr>
+            <tr><td>保温固定间距>300mm</td><td>脱落</td><td><span class="important">锚钉≥4个/m²</span></td></tr>
         </table>
-        <p><strong>惠州注意</strong>：台风季需加固防水层，推荐使用高耐久SBS卷材（如惠州华南建材市场采购）。</p>
     </div>
 
     <div class="container" id="windows">
         <h2>5. 门窗安装阶段（1周）</h2>
-        <p><strong>步骤</strong>：测量洞口，安装铝合金/塑钢窗框，膨胀螺栓固定，硅胶密封，窗台高≥900mm。</p>
+        <p><strong>步骤</strong>：测量洞口（预留10mm缝），安装铝合金窗框（<span class="important">厚度≥1.4mm</span>），膨胀螺栓固定（间距≤400mm），硅胶密封（宽度≥8mm），窗台高≥900mm，外坡1:10。</p>
+        <p><strong>河南注意</strong>：防风沙，选双层中空玻璃；参考GB50096-2011《住宅设计规范》。</p>
         <table>
             <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
-            <tr><td>洞口误差>5mm</td><td>框变形</td><td>预留10mm缝隙，二次测量</td></tr>
-            <tr><td>密封不严</td><td>漏风</td><td>中性硅胶，气密试验≤2.5m³/(m²·h)</td></tr>
-            <tr><td>窗台坡度反</td><td>雨水倒灌</td><td>外高内低1%-2%</td></tr>
+            <tr><td>洞口误差>5mm</td><td>框变形</td><td><span class="important">二次测量，泡沫填充缝隙</span></td></tr>
+            <tr><td>密封不严</td><td>漏风、漏雨</td><td><span class="important">中性硅胶，气密试验≤2.0m³/(m²·h)</span></td></tr>
+            <tr><td>窗台坡度反</td><td>雨水倒灌</td><td><span class="important">外高内低1%-2%，加PVC滴水线</span></td></tr>
         </table>
-        <p><strong>惠州注意</strong>：沿海盐雾腐蚀，选耐腐铝合金窗（如惠州本地品牌“南华门窗”）。</p>
     </div>
 
     <div class="container" id="decoration">
         <h2>6. 室内外装修阶段（4-6周）</h2>
-        <p><strong>步骤</strong>：抹灰（1:3水泥砂浆），地面找平（C15混凝土），墙面批腻子刷漆；外墙贴砖/涂料；安装水电管线、洁具。</p>
+        <p><strong>步骤</strong>：抹灰（1:3水泥砂浆，厚15-20mm，分层7mm/层）；地面找平（C15混凝土，坡度1:100）；墙面批腻子刷漆（2遍底漆+2遍面漆）。<br>
+        <strong>水电安装细节</strong>：水管（UPVC，<span class="important">热熔连接，压力测试1.0MPa/30min</span>），冷热水管分离，坡度1:50向排水口；电线（<span class="important">BV铜芯，弱电强电分离</span>，线管PVC阻燃，直管卡距80cm，拐角20cm），照明2.5mm²、插座4mm²、空调6mm²；开关插座高1.2m/0.3m；接地线（<span class="important">BV-4mm²黄绿双色</span>，电阻≤4Ω）；预埋管深≤40mm，横平竖直（偏差<5mm）。隐蔽前通水/通电试验，绝缘电阻≥0.5MΩ。</p>
+        <p><strong>河南注意</strong>：黄土干燥，管线防尘封口；外墙涂料防碱；参考《河南省工程质量手册》和布线规范（横平竖直，PVC管固定）。</p>
         <table>
             <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
-            <tr><td>抹灰厚度不均（>20mm）</td><td>空鼓</td><td>分层抹灰（7-10mm/层）</td></tr>
-            <tr><td>水电管线弯曲半径<5倍直径</td><td>短路</td><td>PVC管预埋，通线试验</td></tr>
-            <tr><td>外墙排水坡<1:10</td><td>渗水</td><td>PVC管坡向1:100</td></tr>
+            <tr><td>抹灰厚度不均>20mm</td><td>空鼓、裂缝</td><td><span class="important">洒水湿润基层，分层抹灰</span></td></tr>
+            <tr><td>水管坡度<1:50或接口漏</td><td>积水、爆管</td><td><span class="important">热熔全封闭，压力测试记录</span></td></tr>
+            <tr><td>电线弯曲半径<5倍直径</td><td>短路、火灾</td><td><span class="important">PVC管保护，通线试验无阻</span></td></tr>
+            <tr><td>接地电阻>4Ω</td><td>漏电隐患</td><td><span class="important">专用接地线，测试合格签证</span></td></tr>
+            <tr><td>外墙排水坡<1:100</td><td>渗水</td><td><span class="important">PVC排水管，接口胶封</span></td></tr>
         </table>
-        <p><strong>惠州注意</strong>：外墙涂料选防霉型（如立邦防潮系列），应对湿热环境。</p>
     </div>
 
     <div class="container" id="inspection">
         <h2>7. 完工验收阶段（1周）</h2>
-        <p><strong>步骤</strong>：自检、监理复验，检查裂缝、沉降、防水，办理竣工图、合格证，清洁现场。</p>
+        <p><strong>步骤</strong>：自检、监理复验，检查裂缝（<span class="important">≤0.3mm</span>）、沉降（<span class="important">≤10mm/年</span>）、防水（闭水48h）、水电（通水通电24h无漏）、消防（烟感间距≤3m）。办理竣工图、合格证，清洁现场。</p>
+        <p><strong>河南注意</strong>：提交河南省住建厅备案，抗震验收8度设防；参考《水利水电工程验收规程》。</p>
         <table>
             <tr><th>易错点</th><th>后果</th><th>规避措施</th></tr>
-            <tr><td>隐蔽工程未存档</td><td>验收不通过</td><td>每阶段签证，数字化存档</td></tr>
-            <tr><td>沉降观测不足</td><td>隐形裂缝</td><td>每月测读，Δ/H≤1/500</td></tr>
-            <tr><td>消防烟感间距>3m</td><td>隐患</td><td>按GB 50016检测</td></tr>
+            <tr><td>隐蔽工程未存档</td><td>验收不通过</td><td><span class="important">每阶段照片+签证</span></td></tr>
+            <tr><td>沉降观测<3个月</td><td>隐形裂缝</td><td><span class="important">安装沉降点，每月测读Δ/H≤1/600</span></td></tr>
+            <tr><td>水电绝缘<0.5MΩ</td><td>安全隐患</td><td><span class="important">兆欧表测试，记录备案</span></td></tr>
         </table>
-        <p><strong>惠州注意</strong>：提交惠州市住建局备案，需符合地方抗震8度设防要求。</p>
     </div>
 
     <div class="container" id="summary">
         <h2>8. 常见问题汇总</h2>
         <table>
             <tr><th>阶段</th><th>常见问题</th><th>建议</th></tr>
-            <tr><td>材料采购</td><td>假冒钢筋</td><td>索要检测报告，优先大厂</td></tr>
-            <tr><td>基础施工</td><td>沉降不均</td><td>回填压实度≥93%</td></tr>
-            <tr><td>主体施工</td><td>梁柱节点弱</td><td>隐蔽工程签证</td></tr>
-            <tr><td>屋面施工</td><td>渗漏</td><td>闭水试验24h</td></tr>
-            <tr><td>门窗安装</td><td>漏风</td><td>中性硅胶密封</td></tr>
-            <tr><td>装修</td><td>墙面裂缝</td><td>分层抹灰，湿润基层</td></tr>
-            <tr><td>验收</td><td>消防不合格</td><td>烟感间距≤3m</td></tr>
+            <tr><td>材料采购</td><td>假冒钢筋</td><td><span class="important">检测报告，大厂优先</span></td></tr>
+            <tr><td>地基基础</td><td>黄土湿陷</td><td><span class="important">碎石桩处理，压实≥93%</span></td></tr>
+            <tr><td>主体结构</td><td>墙体裂缝</td><td><span class="important">灰缝满灌，垂直检查</span></td></tr>
+            <tr><td>屋面</td><td>渗漏</td><td><span class="important">闭水48h</span></td></tr>
+            <tr><td>门窗</td><td>漏风</td><td><span class="important">硅胶密封</span></td></tr>
+            <tr><td>装修（水电）</td><td>管线漏电</td><td><span class="important">弱强分离，绝缘测试</span></td></tr>
+            <tr><td>验收</td><td>抗震不合格</td><td><span class="important">7-8度设防</span></td></tr>
         </table>
     </div>
 
@@ -149,7 +156,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 惠州施工指南 | 参考：<a href="http://jyj.huizhou.gov.cn/" style="color: #ffc107;">惠州市住建局</a> | 仅供学习参考</p>
+        <p>&copy; 2025 河南施工指南 | 参考：<a href="https://hnjs.henan.gov.cn/" style="color: #ffc107;">河南省住建厅</a> | 仅供参考，咨询专业工程师</p>
     </footer>
 
     <script>
@@ -176,18 +183,18 @@
         new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['材料采购', '基础施工', '主体结构', '屋面施工', '门窗安装', '室内外装修', '完工验收'],
+                labels: ['材料采购', '地基基础', '主体结构', '屋面施工', '门窗安装', '装修（水电）', '完工验收'],
                 datasets: [{
                     label: '耗时（周）',
                     data: [2, 4, 8, 2, 1, 6, 1],
-                    backgroundColor: ['#007bff', '#28a745', '#dc3545', '#ffc107', '#17a2b8', '#6610f2', '#6c757d'],
-                    borderColor: ['#0056b3', '#218838', '#c82333', '#e0a800', '#138496', '#5300eb', '#5a6268'],
+                    backgroundColor: ['#dc3545', '#28a745', '#ffc107', '#17a2b8', '#6f42c1', '#fd7e14', '#6c757d'],
+                    borderColor: ['#c82333', '#218838', '#e0a800', '#138496', '#5a2d91', '#e86209', '#5a6268'],
                     borderWidth: 1
                 }]
             },
             options: {
                 scales: { y: { beginAtZero: true, title: { display: true, text: '耗时（周）' } } },
-                plugins: { title: { display: true, text: '砖混结构施工阶段时间分布' } }
+                plugins: { title: { display: true, text: '砖混结构施工阶段时间分布（河南黄土地区）' } }
             }
         });
     </script>
